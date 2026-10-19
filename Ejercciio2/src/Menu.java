@@ -1,17 +1,17 @@
 import java.util.InputMismatchException;
-import java.util.Queue;
+import Nodo.Cola;
 import java.util.Scanner;
 
 // Clase con la función principal para dejar el Main lo más vacío posible
 
 public class Menu {
-    public void menu(Queue<String> cola, Scanner sc){
-        // valido para repetir la depuración de la opción
-        boolean valido = false;
+    public void menu(Cola<String> cola, Scanner sc){
         // seguirMenu para repetir el menú hasta que el usuario pulse 4
         boolean seguirMenu = true;
 
         while (seguirMenu){
+            // valido para repetir la depuración de la opción y reiniciarlo en cada vuelta del menú
+            boolean valido = false;
             int opcion = 0;
             System.out.println("1. Llegada");
             System.out.println("2. Atender");
@@ -23,22 +23,22 @@ public class Menu {
             while (!valido){
                 // Try catch para depurar si se mete una letra en la opción
                 try{
-                    opcion = sc.nextInt();
+                    opcion = Integer.parseInt(sc.nextLine().trim());
+//                    // Scanner para limpiar el buffer y poder leer el String
+//                    sc.nextLine();
                     valido = true;
-                }catch (InputMismatchException e){
+                }catch (NumberFormatException e){
                     System.out.println("Tienes que ingresar un número entero. Ingresalo de nuevo");
-                    valido = false;
                 }
             }
 
 
             switch(opcion){
                 case 1:
-                    // Scanner para limpiar el buffer y poder leer el String
-                    sc.nextLine();
+
                     System.out.println("Ingresa el nombre del cliente: ");
                     // Offer para añadir el cliente a la cola
-                    cola.offer(sc.next());
+                    cola.offer(sc.nextLine());
                     break;
 
                 case 2:
@@ -48,7 +48,7 @@ public class Menu {
 
                 case 3:
                     System.out.println("Mostrando cola...");
-                    System.out.println(cola);
+                    cola.mostrar();
                     break;
 
                 case 4:
@@ -61,13 +61,6 @@ public class Menu {
 //                    seguirMenu = false;
             }
         }
-
-
-
-
-
-
-
 
     }
 

@@ -1,9 +1,10 @@
-import java.util.*;
+import Nodo.Cola;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Queue<String> clientes = new LinkedList<>();
+        Cola<String> clientes = new Cola<String>();
         Menu menu = new Menu();
         menu.menu(clientes, sc);
     }
