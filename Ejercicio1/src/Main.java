@@ -1,11 +1,10 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Scanner;
+import Nodo.Pila;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Deque<Character> fraseOriginal =  new ArrayDeque<>();
+        Pila<Character> fraseOriginal = new Pila<Character>();
         System.out.println("Ingresa la frase: ");
         String frase = sc.nextLine();
 
@@ -13,6 +12,6 @@ public class Main {
             fraseOriginal.push(frase.charAt(i));
         }
 
-        System.out.println(fraseOriginal);
+        fraseOriginal.mostrar();
     }
 }
