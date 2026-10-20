@@ -24,8 +24,6 @@ public class Menu {
                 // Try catch para depurar si se mete una letra en la opción
                 try{
                     opcion = Integer.parseInt(sc.nextLine().trim());
-//                    // Scanner para limpiar el buffer y poder leer el String
-//                    sc.nextLine();
                     valido = true;
                 }catch (NumberFormatException e){
                     System.out.println("Tienes que ingresar un número entero. Ingresalo de nuevo");
